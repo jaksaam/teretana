@@ -27,11 +27,22 @@ if(!isset($_SESSION['admin_id'])) {
                 Last Name: <input class ="form-control" type="text" name="last_name">  <br>
                 Email: <input class ="form-control" type="email" name="email">  <br>
                 Phone Number: <input class ="form-control" type="text" name="phone_number">  <br>
+
                 Training plan:
                 <select class="form-control" name="training_plan_id">
                     <option value="" disabled selected> Training Plan</option>
-                    <option value="1"> 12 session plan</option>
-                    <option value="2"> 30 session plan</option>
+                 
+                    <?php
+                    $sql = "SELECT * FROM training_plans";
+                    $run = $conn->query($sql);
+                    $results = $run->fetch_all(MYSQLI_ASSOC);
+
+                    foreach($results as $result) {
+                        echo "<option value='" . $result['plan_id'] . "'>" . $result['name'] . "</option>";
+                    }
+
+                    ?>
+
                     </select><br>
                     <input type="hidden" name="photo_path" id="photoPathInput">
                     <div id="dropzone-upload" class="dropzone"></div>
