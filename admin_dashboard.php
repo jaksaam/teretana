@@ -17,6 +17,16 @@ if(!isset($_SESSION['admin_id'])) {
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     </head>
     <body>
+
+<?php if(isset($_SESSION['success_message'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php 
+        echo $_SESSION['success_message']; 
+        unset($_SESSION['success_message']);
+        ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
         
 <div class="container">
     <div class="row mb-5">
@@ -52,6 +62,10 @@ if(!isset($_SESSION['admin_id'])) {
         </div>
     </div>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
     </body>
 </html>
