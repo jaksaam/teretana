@@ -41,6 +41,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     $sql = "UPDATE members SET access_card_pdf_path = '$filename' WHERE member_id = $member_id";
     $conn->query($sql);
+    $conn->close();
 
     $_SESSION['success_message'] = 'Clan teretane uspesno dodat.';
     header('location: admin_dashboard.php');
